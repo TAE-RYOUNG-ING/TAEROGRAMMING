@@ -8,6 +8,7 @@ import egovframework.com.cmm.service.impl.EgovComAbstractDAO;
 import taerogramming.ex.dao.impl.ExDAOImpl;
 import taerogramming.ex.service.ExService;
 import taerogramming.ex.vo.ExVO;
+import taerogramming.ex.vo.PageVO;
 
 
 
@@ -59,7 +60,13 @@ public class ExServiceImpl implements ExService {
 		logger.info("&&&&&&&&&& removeInfo(num) 호출");
 		edao.removeInfo(num);
 	}
-	
+
+	// 6. 맛집 리스트 (페이징 처리 Ver)
+	@Override
+	public List<ExVO> getListPage(PageVO vo) throws Exception {
+		logger.info("&&&&&&&&&& getListPage(vo) 호출");
+		return edao.getListPage(vo);
+	}
 	
 	
 	

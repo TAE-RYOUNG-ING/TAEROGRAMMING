@@ -11,6 +11,7 @@ public class ExVO {
 	private String yyy;
 	private String review;
 	
+	
 	public Integer getNum() {
 		return num;
 	}

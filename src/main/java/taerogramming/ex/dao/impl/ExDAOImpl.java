@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import egovframework.com.cmm.service.impl.EgovComAbstractDAO;
 import taerogramming.ex.vo.ExVO;
+import taerogramming.ex.vo.PageVO;
 
 
 
@@ -52,7 +53,19 @@ public class ExDAOImpl extends EgovComAbstractDAO{
 	// 5. 특정 맛집 삭제
 	public void removeInfo(Integer num) throws Exception {
 		logger.info("########## removeInfo() 호출");
-		delete(NAMESPACE + ".removeInfo", num);
+		update(NAMESPACE + ".removeInfo", num);
 	}
+	
+	// 6. 페이징 처리
+	public List<ExVO> readListPage(Integer page) throws Exception {
+		logger.info("########## readListPage() 호출");
+		return selectList(NAMESPACE + ".listPage", page);
+	}
+	
+	public List<ExVO> getListPage(PageVO vo) throws Exception {
+		logger.info("########## getListPage() 호출");
+		return selectList(NAMESPACE + ".listPage", vo);
+	}
+	
 	
 }

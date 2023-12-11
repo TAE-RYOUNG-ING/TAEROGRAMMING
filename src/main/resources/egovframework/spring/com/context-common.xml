@@ -82,4 +82,6 @@
     <!-- alias name="local.MultiCommonsMultipartResolver" alias="multipartResolver" /-->
     <alias name="spring.RegularCommonsMultipartResolver" alias="multipartResolver" />
 
+<!-- 	<bean id="PageVO" class="taerogramming.ex.vo.PageVO"></bean> -->
+	
 </beans>

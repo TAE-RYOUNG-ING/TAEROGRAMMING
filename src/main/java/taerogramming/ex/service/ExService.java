@@ -3,6 +3,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import taerogramming.ex.vo.ExVO;
+import taerogramming.ex.vo.PageVO;
 
 
 
@@ -22,4 +23,7 @@ public interface ExService {
 	
 	// 5. 특정 맛집 삭제
 	public void removeInfo(Integer num) throws Exception;
+	
+	// 6. 맛집 리스트 조회
+	public List<ExVO> getListPage(PageVO vo) throws Exception;
 }

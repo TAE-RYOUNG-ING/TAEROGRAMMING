@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import taerogramming.ex.service.ExService;
 import taerogramming.ex.vo.ExVO;
+import taerogramming.ex.vo.PageVO;
 
 
 
@@ -26,6 +27,8 @@ public class ExController {
 	// 서비스 주입
 	@Autowired
 	private ExService eService;
+	@Autowired
+	private PageVO pvo;
 	
 	
 	// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ메서드 정의ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
@@ -45,8 +48,12 @@ public class ExController {
 	public String listGET(Model model) throws Exception{
 		logger.info("@@@@@@@@@@ listGET() 호출");
 		
-		// DB에 저장된 리스트 가져오기
-		List<ExVO> exList =  eService.getList();
+		// DB에 저장된 리스트 가져오기 (페이징 처리 X)
+//		List<ExVO> exList =  eService.getList();
+		
+		// DB에 저장된 리스트 가져오기 (페이징 처리 O)
+		// 기본 생성자에 page=1, pagesize=10 적용되어 있음
+		List<ExVO> exList =  eService.getListPage(pvo);
 		logger.info("@@@@@@@@@@ exList : {}", exList);
 		
 		// 연결된 뷰페이지에 정보 전달
@@ -127,9 +134,9 @@ public class ExController {
 	public String deleteInfo(@RequestParam("num") Integer num) throws Exception {
 		logger.info("@@@@@@@@@@ deleteInfo() 호출");
 		
-		// DB에서 해당 정보 삭제하기
+		// 해당 정보 삭제하기
+		// 사실상 DB에는 저장되어 있고 출력할 때 숨기는 것
 		eService.removeInfo(num);
-		
 		// 리스트로 이동
 		return "redirect:/list";
 	}
