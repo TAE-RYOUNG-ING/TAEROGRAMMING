@@ -19,4 +19,7 @@ public interface ExService {
 	
 	// 4. 특정 맛집 수정
 	public void updateInfo(ExVO vo) throws Exception;
+	
+	// 5. 특정 맛집 삭제
+	public void removeInfo(Integer num) throws Exception;
 }

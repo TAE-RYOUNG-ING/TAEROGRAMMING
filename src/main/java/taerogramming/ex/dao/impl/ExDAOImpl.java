@@ -49,5 +49,10 @@ public class ExDAOImpl extends EgovComAbstractDAO{
 		update(NAMESPACE + ".updateInfo", vo);
 	}
 
+	// 5. 특정 맛집 삭제
+	public void removeInfo(Integer num) throws Exception {
+		logger.info("########## removeInfo() 호출");
+		delete(NAMESPACE + ".removeInfo", num);
+	}
 	
 }

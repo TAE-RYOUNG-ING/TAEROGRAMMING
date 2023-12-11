@@ -36,6 +36,12 @@
 	<!-- 특정 맛집 수정 -->
 
 
+	<!-- 특정 맛집 삭제 -->
+	<delete id="removeInfo">
+		delete from mapmap
+		where num = #{num}
+	</delete>
+	<!-- 특정 맛집 삭제 -->
 
 
 

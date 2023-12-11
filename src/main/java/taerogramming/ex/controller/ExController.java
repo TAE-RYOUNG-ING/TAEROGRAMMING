@@ -116,7 +116,25 @@ public class ExController {
 		// DB 정보 업데이트
 		eService.updateInfo(vo);
 		
+		// 리스트로 이동
 		return "redirect:/list";
 	}
+	
+	
+	
+	// 5. 특정 맛집 삭제
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	public String deleteInfo(@RequestParam("num") Integer num) throws Exception {
+		logger.info("@@@@@@@@@@ deleteInfo() 호출");
+		
+		// DB에서 해당 정보 삭제하기
+		eService.removeInfo(num);
+		
+		// 리스트로 이동
+		return "redirect:/list";
+	}
+	
+	
+	
 		
 }

@@ -52,6 +52,15 @@ public class ExServiceImpl implements ExService {
 		logger.info("&&&&&&&&&& updateInfo(vo) 호출");
 		edao.updateInfo(vo);
 	}
+
+	// 5. 특정 맛집 삭제
+	@Override
+	public void removeInfo(Integer num) throws Exception {
+		logger.info("&&&&&&&&&& removeInfo(num) 호출");
+		edao.removeInfo(num);
+	}
+	
+	
 	
 	
 	
