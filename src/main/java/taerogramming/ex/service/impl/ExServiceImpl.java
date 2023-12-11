@@ -4,8 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import taerogramming.ex.dao.ExDAO;
+import egovframework.com.cmm.service.impl.EgovComAbstractDAO;
+import taerogramming.ex.dao.impl.ExDAOImpl;
 import taerogramming.ex.service.ExService;
 import taerogramming.ex.vo.ExVO;
 
@@ -20,7 +20,7 @@ public class ExServiceImpl implements ExService {
 	
 	// 객체 주입
 	@Autowired
-	private ExDAO edao;
+	private ExDAOImpl edao;
 	
 	
 	// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ메서드 정의ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
