@@ -44,7 +44,7 @@
 					<th>리뷰</th>
 				</tr>
 				<tr>
-					<td><input type="text" name="review" size="70"></td>
+					<td><input type="text" name="review" size="100"></td>
 				</tr>
 			</table>
 			<br>

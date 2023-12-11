@@ -95,5 +95,28 @@ public class ExController {
 		model.addAttribute("vo", eService.getInfo(num));
 	}
 	
+	
+	
+	// 4. 특정 맛집 수정
+	@RequestMapping(value = "/modify", method = RequestMethod.GET)
+	public void updateInfoGET(@RequestParam("num") Integer num, Model model) throws Exception{
+		logger.info("@@@@@@@@@@ updateInfoGET() 호출");
+		
+		// 특정 맛집 정보 가져와서 바로 뷰페이지 전달
+		model.addAttribute("vo", eService.getInfo(num));
+	}
+	
+	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+	public String updateInfoPOST(ExVO vo) throws Exception{
+		logger.info("@@@@@@@@@@ updateInfoPOST() 호출");
+		
+		// 사용자가 입력한 정보
+		logger.info("@@@@@@@@@@ vo : {}", vo);
+		
+		// DB 정보 업데이트
+		eService.updateInfo(vo);
+		
+		return "redirect:/list";
+	}
 		
 }

@@ -65,9 +65,9 @@
 <br>
 
 <div class="center">
-	<input type="button" class="right" value="수정" onclick="">
-	<input type="button" class="right" value="삭제" onclick="">
-	<input type="button" class="right" value="목록으로" onclick="location.href='/list';">
+	<input type="button" value="수정" onclick="location.href='/modify?num=${vo.num}';">
+	<input type="button" value="삭제" onclick="location.href='/delete?num=${vo.num}';">
+	<input type="button" value="목록으로" onclick="location.href='/list';">
 </div>
 
 </body>

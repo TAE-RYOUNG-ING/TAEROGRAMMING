@@ -45,6 +45,15 @@ public class ExServiceImpl implements ExService {
 		logger.info("&&&&&&&&&& getInfo(num) 호출");
 		return edao.getInfo(num);
 	}
+
+	// 4. 특정 맛집 수정
+	@Override
+	public void updateInfo(ExVO vo) throws Exception {
+		logger.info("&&&&&&&&&& updateInfo(vo) 호출");
+		edao.updateInfo(vo);
+	}
+	
+	
 	
 	
 	

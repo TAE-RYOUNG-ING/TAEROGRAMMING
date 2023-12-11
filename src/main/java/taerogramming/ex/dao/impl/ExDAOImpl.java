@@ -43,6 +43,11 @@ public class ExDAOImpl extends EgovComAbstractDAO{
 		return selectOne(NAMESPACE + ".info", num);
 	}
 	
+	// 4. 특정 맛집 수정
+	public void updateInfo(ExVO vo) throws Exception {
+		logger.info("########## updateInfo() 호출");
+		update(NAMESPACE + ".updateInfo", vo);
+	}
 
 	
 }

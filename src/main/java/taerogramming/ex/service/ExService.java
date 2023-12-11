@@ -17,5 +17,6 @@ public interface ExService {
 	// 3. 특정 맛집 정보 조회
 	public ExVO getInfo(Integer num) throws Exception;
 	
-	
+	// 4. 특정 맛집 수정
+	public void updateInfo(ExVO vo) throws Exception;
 }
