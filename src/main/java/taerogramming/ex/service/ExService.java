@@ -8,10 +8,14 @@ import taerogramming.ex.vo.ExVO;
 
 public interface ExService {
 
-	// 리스트 출력
+	// 1. 맛집 리스트
 	public List<ExVO> getList() throws Exception;
 	
-	// 등록
+	// 2. 맛집 등록
 	public void regist(ExVO vo) throws Exception;
+	
+	// 3. 특정 맛집 정보 조회
+	public ExVO getInfo(Integer num) throws Exception;
+	
 	
 }

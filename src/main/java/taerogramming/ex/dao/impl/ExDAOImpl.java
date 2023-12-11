@@ -20,14 +20,14 @@ public class ExDAOImpl extends EgovComAbstractDAO{
 	
 	// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ메서드 정의ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 	
-	// 리스트
+	// 1. 맛집 리스트
 	public List<ExVO> readList() throws Exception {
 		logger.info("########## readList() 호출");
 //		return sqlSession.selectList(NAMESPACE + ".list");
 		return selectList(NAMESPACE + ".list");
 	}
 
-	// 등록
+	// 2. 맛집 등록
 	public void insert(ExVO vo) throws Exception {
 		logger.info("########## insert() 호출");
 		
@@ -37,6 +37,11 @@ public class ExDAOImpl extends EgovComAbstractDAO{
 		}
 	}
 	
+	// 3. 특정 맛집 정보 조회
+	public ExVO getInfo(Integer num) throws Exception {
+		logger.info("########## getInfo() 호출");
+		return selectOne(NAMESPACE + ".info", num);
+	}
 	
 
 	

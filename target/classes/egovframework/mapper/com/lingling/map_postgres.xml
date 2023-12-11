@@ -6,17 +6,24 @@
 
 
 	<!-- 리스트 출력 -->
-	<select id="list" resultType="taerogramming.ex.vo.ExVO">
+	<select id="list" resultType="ExVO">
   		select * from mapmap order by num desc
 	</select>
 	<!-- 리스트 출력 -->
 
 	<!-- 등록 -->
 	<insert id="create">
-		insert into mapmap (title, addr, xxx, yyy) 
-        values (#{title}, #{addr}, #{xxx}, #{yyy})
+		insert into mapmap (title, addr, xxx, yyy, review) 
+        values (#{title}, #{addr}, #{xxx}, #{yyy}, #{review})
 	</insert>
 	<!-- 등록 -->
+	
+	<!-- 특정 맛집 조회 -->
+	<select id="info" resultType="ExVO">
+		select * from mapmap
+		where num = #{num}
+	</select>
+	<!-- 특정 맛집 조회 -->
 
 
 

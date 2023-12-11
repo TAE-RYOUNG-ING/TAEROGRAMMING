@@ -9,7 +9,7 @@ public class ExVO {
 	private String addr;
 	private String xxx;
 	private String yyy;
-	
+	private String review;
 	
 	public Integer getNum() {
 		return num;
@@ -41,10 +41,17 @@ public class ExVO {
 	public void setYyy(String yyy) {
 		this.yyy = yyy;
 	}
+	public String getReview() {
+		return review;
+	}
+	public void setReview(String review) {
+		this.review = review;
+	}
 	
 	@Override
 	public String toString() {
-		return "ExVO [num=" + num + ", title=" + title + ", addr=" + addr + ", xxx=" + xxx + ", yyy=" + yyy + "]";
+		return "ExVO [num=" + num + ", title=" + title + ", addr=" + addr + ", xxx=" + xxx + ", yyy=" + yyy
+				+ ", review=" + review + "]";
 	}
 
 }

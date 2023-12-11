@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import taerogramming.ex.service.ExService;
 import taerogramming.ex.vo.ExVO;
@@ -29,7 +30,7 @@ public class ExController {
 	
 	// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ메서드 정의ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 	
-	// 테스트
+	// 0. 테스트
 	// http://localhost:8080/lingling
 	@RequestMapping(value = "/lingling.do", method = RequestMethod.GET)
 	public void linglingGET() throws Exception{
@@ -38,7 +39,7 @@ public class ExController {
 	
 	
 	
-	// 리스트 출력
+	// 1. 맛집 리스트
 	// http://localhost:8080/list
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String listGET(Model model) throws Exception{
@@ -55,7 +56,7 @@ public class ExController {
 	
 	
 	
-	// 맛집 등록
+	// 2. 맛집 등록
 	// http://localhost:8080/regist
 	@RequestMapping(value = "/regist", method = RequestMethod.GET)
 	public void registGET() throws Exception{
@@ -78,12 +79,20 @@ public class ExController {
 	
 	
 	
-	// 특정 맛집 정보 보기
-	// http://localhost:8080/info
+	// 3. 특정 맛집 정보 조회
 	@RequestMapping(value = "/info", method = RequestMethod.GET)
-	public void getInfo() throws Exception{
+	public void getInfo(@RequestParam("num") Integer num, Model model) throws Exception{
 		logger.info("@@@@@@@@@@ getInfo() 호출");
-		logger.info("@@@@@@@@@@ info 페이지 이동");
+		logger.info("@@@@@@@@@@ num = " + num);
+		
+		// 특정 맛집 정보 가져오기
+//		ExVO resultVO = eService.getInfo(num);
+//		logger.info("@@@@@@@@@@ resultVO : {}", resultVO);
+		// 뷰페이지 전달
+//		model.addAttribute("resultVO", resultVO);
+		
+		// 특정 맛집 정보 가져와서 바로 뷰페이지 전달
+		model.addAttribute("vo", eService.getInfo(num));
 	}
 	
 		

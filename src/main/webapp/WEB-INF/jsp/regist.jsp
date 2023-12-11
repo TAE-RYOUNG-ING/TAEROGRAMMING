@@ -10,10 +10,7 @@
 .center {
 	text-align: center;
 }
-.btn {
-	text-align: right;
-}
-.inline{
+.inline {
 	display: inline-block;
 }
 
@@ -42,10 +39,17 @@
 				</tr>
 			</table>
 			<br>
-			<div class="btn">
+			<table border="1">
+				<tr>
+					<th>리뷰</th>
+				</tr>
+				<tr>
+					<td><input type="text" name="review" size="70"></td>
+				</tr>
+			</table>
+			<br>
 				<input type="submit" value="등록하기">
 				<input type="button" value="목록으로" onclick="location.href='/list';">
-			</div>
 		</form>
 	</div>
 </div>

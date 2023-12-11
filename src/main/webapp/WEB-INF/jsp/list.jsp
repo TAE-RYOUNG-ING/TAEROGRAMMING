@@ -34,17 +34,17 @@
 	
 		<table border="1">
 			<tr>
-				<th>no</th>
-				<th>가게명</th>
-				<th>주소</th>
-				<th>x 좌표</th>
-				<th>y 좌표</th>
+				<th>　no　</th>
+				<th>　가게명　</th>
+				<th>　주소　</th>
+				<th>　x 좌표　</th>
+				<th>　y 좌표　</th>
 			</tr>
 			
 			<c:forEach var="list" items="${exList }">
 			<tr>
 				<td>${list.num }</td>
-				<td><a href="/info">${list.title }</a></td>
+				<td><a href="/info?num=${list.num}">${list.title }</a></td>
 				<td>${list.addr }</td>
 				<td>${list.xxx }</td>
 				<td>${list.yyy }</td>
@@ -53,6 +53,8 @@
 		</table>
 	</div>
 	<br><br>
+	
+	<!-- 페이징 처리 -->
 	<a href="#">[1]</a>
 	<a href="#">[2]</a>
 	<a href="#">[3]</a>

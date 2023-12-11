@@ -25,18 +25,25 @@ public class ExServiceImpl implements ExService {
 	
 	// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ메서드 정의ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 	
-	// 리스트
+	// 1. 맛집 리스트
 	@Override
 	public List<ExVO> getList() throws Exception {
 		logger.info("&&&&&&&&&& getList() 호출");
 		return edao.readList();
 	}
 
-	// 등록
+	// 2. 맛집 등록
 	@Override
 	public void regist(ExVO vo) throws Exception {
 		logger.info("&&&&&&&&&& regist(vo) 호출");
 		edao.insert(vo);
+	}
+
+	// 3. 특정 맛집 정보 조회
+	@Override
+	public ExVO getInfo(Integer num) throws Exception {
+		logger.info("&&&&&&&&&& getInfo(num) 호출");
+		return edao.getInfo(num);
 	}
 	
 	
