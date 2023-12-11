@@ -28,7 +28,7 @@ public class ExController {
 	
 	// 테스트
 	// http://localhost:8080/lingling
-	@RequestMapping(value = "/lingling", method = RequestMethod.GET)
+	@RequestMapping(value = "/lingling.do", method = RequestMethod.GET)
 	public void linglingGET() throws Exception{
 		logger.info("@@@@@@@@@@ linglingGET() 호출");
 	}
@@ -65,16 +65,23 @@ public class ExController {
 		logger.info("@@@@@@@@@@ registPOST() 호출");
 		
 		// 입력된 정보 가져오기 (파라미터)
-		// !!!!!!!!!!! 콘솔창에 한글 출력이 안됨 !!!!!!!!!!!
 		logger.info("vo : {}", vo);
-		
 		// DB에 저장
 		eService.regist(vo);
 		
 		// view 페이지 이동
 		return "redirect:/list";
 	}
-		
+	
+	
+	
+	// 특정 맛집 정보 보기
+	// http://localhost:8080/info
+	@RequestMapping(value = "/info", method = RequestMethod.GET)
+	public void getInfo() throws Exception{
+		logger.info("@@@@@@@@@@ getInfo() 호출");
+		logger.info("@@@@@@@@@@ info 페이지 이동");
+	}
 	
 		
 }
