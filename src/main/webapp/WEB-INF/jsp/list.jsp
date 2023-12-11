@@ -55,7 +55,17 @@
 	<br><br>
 	
 	<!-- 페이징 처리 -->
+	<c:if test="${pm.prev }">
+		<a href="/list?page=${pm.startPage-1 }">«</a>
+	</c:if>
 	
+	<c:forEach begin="${pm.startPage }" end="${pm.endPage }" step="1" var="idx">
+		<a href="/list?page=${idx }">${idx }</a>
+	</c:forEach>
+	
+	<c:if test="${pm.next }">
+		<a href="/list?page=${pm.endPage+1 }">»</a>
+	</c:if>
 
 </div>
 

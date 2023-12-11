@@ -12,7 +12,7 @@ public class PageVO {
 	public PageVO() {
 		// 페이징처리의 기본값 설정
 		this.page = 1;
-		this.pageSize = 10;
+		this.pageSize = 5;
 	}
 
 	

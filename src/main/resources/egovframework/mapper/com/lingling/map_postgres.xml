@@ -14,7 +14,7 @@
 	<!-- 맛집 리스트 -->
 
 
-	<!-- 맛집 리스트__페이징 처리 -->
+	<!-- 맛집 리스트 (페이징 처리) -->
   	<select id="listPage" resultType="ExVO">
   		<![CDATA[
   		select * from mapmap
@@ -58,7 +58,12 @@
 	<!-- 특정 맛집 삭제 -->
 
 
-
+	<!-- 전체 글 개수 계산 -->
+	<select id="totalCnt" resultType="int">
+		select count(*) from mapmap
+		where delyn = 'n'
+	</select>
+	<!-- 전체 글 개수 계산 -->
 
 
 

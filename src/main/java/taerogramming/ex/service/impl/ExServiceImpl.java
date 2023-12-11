@@ -26,11 +26,18 @@ public class ExServiceImpl implements ExService {
 	
 	// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ메서드 정의ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 	
-	// 1. 맛집 리스트
+	// 1-1. 맛집 리스트
 	@Override
 	public List<ExVO> getList() throws Exception {
 		logger.info("&&&&&&&&&& getList() 호출");
 		return edao.readList();
+	}
+	
+	// 1-2. 맛집 리스트 (페이징 처리)
+	@Override
+	public List<ExVO> getListPage(PageVO vo) throws Exception {
+		logger.info("&&&&&&&&&& getListPage(vo) 호출");
+		return edao.getListPage(vo);
 	}
 
 	// 2. 맛집 등록
@@ -61,11 +68,13 @@ public class ExServiceImpl implements ExService {
 		edao.removeInfo(num);
 	}
 
-	// 6. 맛집 리스트 (페이징 처리 Ver)
+	// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 페이징 처리 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+	// 6. 게시판 총 글 개수 계산
 	@Override
-	public List<ExVO> getListPage(PageVO vo) throws Exception {
-		logger.info("&&&&&&&&&& getListPage(vo) 호출");
-		return edao.getListPage(vo);
+	public int getTotalCount() throws Exception {
+		logger.info("&&&&&&&&&& getTotalCount() 호출");
+		return edao.getTotalCount();
 	}
 	
 	

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import taerogramming.ex.service.ExService;
 import taerogramming.ex.vo.ExVO;
+import taerogramming.ex.vo.PageMaker;
 import taerogramming.ex.vo.PageVO;
 
 
@@ -35,7 +36,7 @@ public class ExController {
 	
 	// 0. 테스트
 	// http://localhost:8080/lingling
-	@RequestMapping(value = "/lingling.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/lingling", method = RequestMethod.GET)
 	public void linglingGET() throws Exception{
 		logger.info("@@@@@@@@@@ linglingGET() 호출");
 	}
@@ -45,7 +46,7 @@ public class ExController {
 	// 1. 맛집 리스트
 	// http://localhost:8080/list
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public String listGET(Model model) throws Exception{
+	public String listGET(PageVO pvo, Model model) throws Exception{
 		logger.info("@@@@@@@@@@ listGET() 호출");
 		
 		// DB에 저장된 리스트 가져오기 (페이징 처리 X)
@@ -56,8 +57,15 @@ public class ExController {
 		List<ExVO> exList =  eService.getListPage(pvo);
 		logger.info("@@@@@@@@@@ exList : {}", exList);
 		
+		// 페이징처리 (하단부) 정보 저장 객체
+		PageMaker pm = new PageMaker();
+		pm.setPageVO(pvo);
+		pm.setTotalCount(eService.getTotalCount());	// calcMyPage() 함수까지 같이 호출
+													// 실제 내 DB에 있는 총 글의 개수를 파라미터에 넣음
+		
 		// 연결된 뷰페이지에 정보 전달
 		model.addAttribute("exList", exList);
+		model.addAttribute("pm", pm);
 		return "/list";
 	}
 	

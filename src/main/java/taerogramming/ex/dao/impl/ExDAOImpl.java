@@ -21,11 +21,17 @@ public class ExDAOImpl extends EgovComAbstractDAO{
 	
 	// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ메서드 정의ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 	
-	// 1. 맛집 리스트
+	// 1-1. 맛집 리스트
 	public List<ExVO> readList() throws Exception {
 		logger.info("########## readList() 호출");
 //		return sqlSession.selectList(NAMESPACE + ".list");
 		return selectList(NAMESPACE + ".list");
+	}
+	
+	// 1-2. 맛집 리스트 (페이징 처리)
+	public List<ExVO> getListPage(PageVO vo) throws Exception {
+		logger.info("########## getListPage() 호출");
+		return selectList(NAMESPACE + ".listPage", vo);
 	}
 
 	// 2. 맛집 등록
@@ -56,15 +62,12 @@ public class ExDAOImpl extends EgovComAbstractDAO{
 		update(NAMESPACE + ".removeInfo", num);
 	}
 	
-	// 6. 페이징 처리
-	public List<ExVO> readListPage(Integer page) throws Exception {
-		logger.info("########## readListPage() 호출");
-		return selectList(NAMESPACE + ".listPage", page);
-	}
+	// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 페이징 처리 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 	
-	public List<ExVO> getListPage(PageVO vo) throws Exception {
-		logger.info("########## getListPage() 호출");
-		return selectList(NAMESPACE + ".listPage", vo);
+	// 6. 전체 글 개수 계산
+	public int getTotalCount() throws Exception {
+		logger.info("########## getTotalCount() 호출");
+		return selectOne(NAMESPACE + ".totalCnt");
 	}
 	
 	
