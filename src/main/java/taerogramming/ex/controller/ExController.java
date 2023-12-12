@@ -39,6 +39,7 @@ public class ExController {
 	@RequestMapping(value = "/lingling", method = RequestMethod.GET)
 	public void linglingGET() throws Exception{
 		logger.info("@@@@@@@@@@ linglingGET() 호출");
+		logger.info("@@@@@@@@@@ lingling.jsp 페이지 이동");
 	}
 	
 	
@@ -46,7 +47,7 @@ public class ExController {
 	// 1. 맛집 리스트
 	// http://localhost:8080/list
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public String listGET(PageVO pvo, Model model) throws Exception{
+	public void listGET(PageVO pvo, Model model) throws Exception{
 		logger.info("@@@@@@@@@@ listGET() 호출");
 		
 		// DB에 저장된 리스트 가져오기 (페이징 처리 X)
@@ -66,7 +67,7 @@ public class ExController {
 		// 연결된 뷰페이지에 정보 전달
 		model.addAttribute("exList", exList);
 		model.addAttribute("pm", pm);
-		return "/list";
+		logger.info("@@@@@@@@@@ list.jsp 페이지이동");
 	}
 	
 	
@@ -76,7 +77,7 @@ public class ExController {
 	@RequestMapping(value = "/regist", method = RequestMethod.GET)
 	public void registGET() throws Exception{
 		logger.info("@@@@@@@@@@ registGET() 호출");
-		logger.info("@@@@@@@@@@ regist 페이지 이동");
+		logger.info("@@@@@@@@@@ regist.jsp 페이지 이동");
 	}
 	
 	@RequestMapping(value = "/regist", method = RequestMethod.POST)
@@ -108,6 +109,7 @@ public class ExController {
 		
 		// 특정 맛집 정보 가져와서 바로 뷰페이지 전달
 		model.addAttribute("vo", eService.getInfo(num));
+		logger.info("@@@@@@@@@@ info.jsp 페이지 이동");
 	}
 	
 	
@@ -139,7 +141,8 @@ public class ExController {
 	
 	// 5. 특정 맛집 삭제
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
-	public String deleteInfo(@RequestParam("num") Integer num) throws Exception {
+//	public String deleteInfo(@RequestParam("num") Integer num) throws Exception {
+	public String deleteInfo(Integer num) throws Exception { // 컨트롤러의 파라미터 자동 수집
 		logger.info("@@@@@@@@@@ deleteInfo() 호출");
 		
 		// 해당 정보 삭제하기
@@ -148,6 +151,31 @@ public class ExController {
 		// 리스트로 이동
 		return "redirect:/list";
 	}
+	
+	
+	
+	// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 지도 띄우기 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+	@RequestMapping(value = "/exMap", method = RequestMethod.GET)
+	public void getExMap() throws Exception {
+		logger.info("@@@@@@@@@@ getExMap() 호출");
+		logger.info("@@@@@@@@@@ exMap.jsp 페이지 이동");
+	}
+	
+	@RequestMapping(value = "/exMap2", method = RequestMethod.GET)
+	public void getExMap2() throws Exception {
+		logger.info("@@@@@@@@@@ getExMap2() 호출");
+		logger.info("@@@@@@@@@@ exMap2.jsp 페이지 이동");
+	}
+	
+	@RequestMapping(value = "/exMap3", method = RequestMethod.GET)
+	public void getExMap3() throws Exception {
+		logger.info("@@@@@@@@@@ getExMap3() 호출");
+		logger.info("@@@@@@@@@@ exMap3.jsp 페이지 이동");
+	}
+	
+	
+	
+	
 	
 	
 	

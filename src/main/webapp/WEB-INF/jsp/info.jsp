@@ -22,7 +22,7 @@ $(document).ready(function(){
 	// form태그 정보 저장
 	let frObj = $('#fr');
 	
-	// '수정하기' 클릭
+	// '삭제하기' 클릭
 	$('#delete').click(function(){
 		alert("삭제가 완료되었습니다.");
 		frObj.attr("method", "post");
@@ -86,7 +86,7 @@ $(document).ready(function(){
 <div class="center">
 	<input type="button" value="수정" onclick="location.href='/modify?num=${vo.num}';">
 	<input type="button" id="delete" value="삭제">
-	<input type="button" value="목록으로" onclick="location.href='/list';">
+	<input type="button" value="목록으로" onclick="location.href='/list?page=${param.page}';">
 </div>
 
 </body>

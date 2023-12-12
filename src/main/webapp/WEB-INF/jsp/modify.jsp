@@ -42,7 +42,7 @@ $(document).ready(function(){
 	
 		<h1 class="center">🍽 ${vo.title } 🍽 수정</h1>
 		
-		<!-- ㅡㅡㅡㅡㅡ form ㅡㅡㅡㅡㅡ -->
+		<!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ form ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 		<form role="form" id="fr">
 			<input type="hidden" name="num" value="${vo.num }">
 		
@@ -83,6 +83,7 @@ $(document).ready(function(){
 				</tr>
 			</table>
 	</form>
+	<!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ form ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 	
 	</div>
 </div>
