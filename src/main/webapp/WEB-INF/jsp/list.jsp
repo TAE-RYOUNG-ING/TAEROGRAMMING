@@ -45,7 +45,7 @@
 			<c:forEach var="list" items="${exList }">
 			<tr>
 				<td>${list.num }</td>
-				<td><a href="/info?num=${list.num}&page=${param.page}">${list.title }</a></td>
+				<td><a href="/info?num=${list.num}&page=${pm.pageVO.page }">${list.title }</a></td>
 				<td>${list.addr }</td>
 				<td>${list.xxx }</td>
 				<td>${list.yyy }</td>
