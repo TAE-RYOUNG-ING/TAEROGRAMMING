@@ -30,7 +30,16 @@ $(document).ready(function() {
 	
 	// 지도 띄우기
     init();
+	
+	// 지도 클릭 시 해당 좌표 값을 가져옴
+    map.on('click', function(evt) {
+        //let lonlat = ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326');
+        let coordinate = evt.coordinate;
+        console.log(coordinate);
+    });
     
+	
+	
  	// form태그 정보 저장
 	let frObj = $('#fr');
 	// '삭제하기' 클릭
@@ -55,10 +64,9 @@ function init() {
     console.log("cneter = " + center);
     map = new ol.Map({
 			 		   layers: [new ol.layer.Tile({source: new ol.source.OSM()})],	// OpenStreetMap 레이어
-						       target: 'map',										// Map 생성할 div id
-						       view: new ol.View({     
-											       center: center,					// 초기 지도 위치 좌표
-											       zoom: 17})						// 초기 지도 위치 줌레벨
+					   target: 'map',										        // Map 생성할 div id
+					   view: new ol.View({center: center, 			// 초기 지도 위치 좌표
+										  zoom: 17})				// 초기 지도 위치 줌레벨
 					 });
 }
 
@@ -96,7 +104,9 @@ function init() {
 					<th>지도</th>
 				</tr>
 				<tr>
-					<td><div id="map" class="map"></div></td>
+					<td>
+						<div id="map" class="map"></div>
+					</td>
 				</tr>
 			</table>
 			<br>
