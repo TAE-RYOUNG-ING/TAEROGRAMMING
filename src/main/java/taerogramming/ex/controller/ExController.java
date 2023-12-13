@@ -160,18 +160,7 @@ public class ExController {
 		logger.info("@@@@@@@@@@ getExMap() 호출");
 		logger.info("@@@@@@@@@@ exMap.jsp 페이지 이동");
 	}
-	
-	@RequestMapping(value = "/exMap2", method = RequestMethod.GET)
-	public void getExMap2() throws Exception {
-		logger.info("@@@@@@@@@@ getExMap2() 호출");
-		logger.info("@@@@@@@@@@ exMap2.jsp 페이지 이동");
-	}
-	
-	@RequestMapping(value = "/exMap3", method = RequestMethod.GET)
-	public void getExMap3() throws Exception {
-		logger.info("@@@@@@@@@@ getExMap3() 호출");
-		logger.info("@@@@@@@@@@ exMap3.jsp 페이지 이동");
-	}
+
 	
 	
 	

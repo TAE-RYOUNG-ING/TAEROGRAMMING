@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Wed May 11 15:49:38 KST 2016-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="LingLing">
+
+
+	<!-- 맛집 리스트 -->
+	<select id="list" resultType="ExVO">
+  		select * from mapmap
+  		where delyn = 'n'
+  		order by num desc
+	</select>
+	<!-- 맛집 리스트 -->
+
+
+	<!-- 맛집 리스트 (페이징 처리) -->
+  	<select id="listPage" resultType="ExVO">
+  		<![CDATA[
+  		select * from mapmap
+  		where num > 0 and delyn = 'n'
+  		order by num desc 
+  		limit #{pageSize} offset #{startPage}
+  		]]>
+  	</select>
+	<!-- 맛집 리스트__페이징 처리 -->
+
+
+	<!-- 등록 -->
+	<insert id="create">
+		insert into mapmap (title, addr, xxx, yyy, review) 
+        values (#{title}, #{addr}, #{xxx}, #{yyy}, #{review})
+	</insert>
+	<!-- 등록 -->
+	
+	
+	<!-- 특정 맛집 조회 -->
+	<select id="info" resultType="ExVO">
+		select * from mapmap
+		where num = #{num} and delyn = 'n'
+	</select>
+	<!-- 특정 맛집 조회 -->
+	
+	
+	<!-- 특정 맛집 수정 -->
+	<update id="updateInfo">
+		update mapmap set title = #{title}, addr = #{addr}, xxx = #{xxx}, yyy = #{yyy}, review = #{review}
+		where num = #{num} and delyn = 'n'
+	</update>
+	<!-- 특정 맛집 수정 -->
+
+
+	<!-- 특정 맛집 삭제 -->
+	<update id="removeInfo">
+		update mapmap set delyn = 'y'
+		where num = #{num}
+	</update>
+	<!-- 특정 맛집 삭제 -->
+
+
+	<!-- 전체 글 개수 계산 -->
+	<select id="totalCnt" resultType="int">
+		select count(*) from mapmap
+		where delyn = 'n'
+	</select>
+	<!-- 전체 글 개수 계산 -->
+
+
+
+
+</mapper>
