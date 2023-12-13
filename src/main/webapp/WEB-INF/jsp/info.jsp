@@ -6,71 +6,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<!-- jquery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <!-- openlayers -->
 <link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
+<link rel="stylesheet" href="/css/info.css" type="text/css">
 <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
-<!-- style -->
-<style>
-.map {
-    width: 400px;
-    height:200px;
-}
-.center {
-	text-align: center;
-}
-.inline{
-	display: inline-block;
-}
-</style>
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- js -->
+<script type="text/javascript" src="/js/global.js"></script>
+<script type="text/javascript" src="/js/info.js"></script>
 <script type="text/javascript">
-// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡJQueryㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-$(document).ready(function() {
-	
-	// 지도 띄우기
-    init();
-	
-	// 지도 클릭 시 해당 좌표 값을 가져옴
-    map.on('click', function(evt) {
-        //let lonlat = ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326');
-        let coordinate = evt.coordinate;
-        console.log(coordinate);
-    });
-    
-	
-	
- 	// form태그 정보 저장
-	let frObj = $('#fr');
-	// '삭제하기' 클릭
-	$('#delete').click(function(){
-		alert("삭제가 완료되었습니다.");
-		frObj.attr('method', 'post');
-		frObj.attr('action', '/delete');
-		frObj.submit();
-	});
-	
-});
-//ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡJQueryㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-
-let map = null;
-let lon = Number("${vo.xxx}");
-let lat = Number("${vo.yyy}");
-console.log("lon = " + lon + ", lat = " + lat);
-
-function init() {
-    // map 생성
-    let center = ol.proj.transform([lon, lat], 'EPSG:4326', 'EPSG:3857');
-    console.log("cneter = " + center);
-    map = new ol.Map({
-			 		   layers: [new ol.layer.Tile({source: new ol.source.OSM()})],	// OpenStreetMap 레이어
-					   target: 'map',										        // Map 생성할 div id
-					   view: new ol.View({center: center, 			// 초기 지도 위치 좌표
-										  zoom: 17})				// 초기 지도 위치 줌레벨
-					 });
-}
-
+// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡJSTL값은 여기서 저장...
+centerPos = [Number("${vo.xxx}"), Number("${vo.yyy}")];
 </script>
+
 </head>
 <body>
 
@@ -129,6 +79,8 @@ function init() {
 	<input type="button" id="delete" value="삭제">
 	<input type="button" value="목록으로" onclick="location.href='/list?page=${param.page}';">
 </div>
+
+
 
 </body>
 </html>
