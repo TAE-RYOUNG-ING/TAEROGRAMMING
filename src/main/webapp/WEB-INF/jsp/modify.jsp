@@ -5,37 +5,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
 
-.center {
-	text-align: center;
-}
-.inline{
-	display: inline-block;
-}
-
-</style>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- css -->
+<link rel="stylesheet" href="/css/regist.css" type="text/css">
+<!-- openlayers -->
+<link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
+<script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- js -->
+<script type="text/javascript" src="/js/global.js"></script>
+<script type="text/javascript" src="/js/modify.js"></script>
 <script type="text/javascript">
-
-$(document).ready(function(){
-	// form태그 정보 저장
-	let frObj = $('#fr');
-	
-	// '수정하기' 클릭
-	$('#update').click(function(){
-		alert("수정이 완료되었습니다.");
-		frObj.attr("method", "post");
-		frObj.attr("action", "/modify");
-		frObj.submit();
-	});
-});
-
+centerPos = [Number("${vo.xxx }"), Number("${vo.yyy }")];
+console.log("centerPos= " + centerPos);
 </script>
 </head>
 <body>
-
 
 <div class="center">
 	<div class="inline">
@@ -58,8 +44,8 @@ $(document).ready(function(){
 					<td>${vo.num }</td>
 					<td><input type="text" name="title" value="${vo.title }" size="20"></td>
 					<td><input type="text" name="addr" value="${vo.addr }" size="50"></td>
-					<td><input type="text" name="xxx" value="${vo.xxx }" size="20"></td>
-					<td><input type="text" name="yyy" value="${vo.yyy }" size="20"></td>
+					<td><input type="text" id="xxx" name="xxx" value="${vo.xxx }" size="20" readonly></td>
+					<td><input type="text" id="yyy" name="yyy" value="${vo.yyy }" size="20" readonly></td>
 				</tr>
 			</table>
 			<br>
@@ -69,7 +55,7 @@ $(document).ready(function(){
 					<th>지도</th>
 				</tr>
 				<tr>
-					<td>~~~~~~~~~~ 지도띄우기 ~~~~~~~~~~</td>
+					<td><div id="map" class="map"></div></td>
 				</tr>
 			</table>
 			<br>

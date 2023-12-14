@@ -6,7 +6,6 @@ $(document).ready(function() {
 	
 	// 지도 클릭 시 해당 좌표 값을 가져옴
     map.on('click', function(evt) {
-        //let lonlat = ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326');
         let coordinate = evt.coordinate;
         console.log(coordinate);
     });
@@ -25,8 +24,9 @@ $(document).ready(function() {
 });
 // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡJQueryㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
-// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡJSㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
+
+// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡJSㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 // ㅡㅡㅡㅡㅡㅡㅡㅡ 1. 지도 생성 ㅡㅡㅡㅡㅡㅡㅡㅡ
 
 function init() {

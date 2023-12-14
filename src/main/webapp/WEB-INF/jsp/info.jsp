@@ -7,9 +7,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
+<!-- css -->
+<link rel="stylesheet" href="/css/info.css" type="text/css">
 <!-- openlayers -->
 <link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
-<link rel="stylesheet" href="/css/info.css" type="text/css">
 <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -17,7 +18,7 @@
 <script type="text/javascript" src="/js/global.js"></script>
 <script type="text/javascript" src="/js/info.js"></script>
 <script type="text/javascript">
-// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡJSTL값은 여기서 저장...
+// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡJava SCriptㅡㅡㅡㅡㅡㅡ
 centerPos = [Number("${vo.xxx}"), Number("${vo.yyy}")];
 </script>
 

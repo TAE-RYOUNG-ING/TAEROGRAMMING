@@ -1,20 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
 
-.center {
-	text-align: center;
-}
-.inline {
-	display: inline-block;
-}
+<!-- css -->
+<link rel="stylesheet" href="/css/regist.css" type="text/css">
+<!-- openlayers -->
+<link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
+<script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- js -->
+<script type="text/javascript" src="/js/global.js"></script>
+<script type="text/javascript" src="/js/regist.js"></script>
 
-</style>
 </head>
 <body>
 
@@ -34,8 +37,17 @@
 				<tr>
 					<td><input type="text" name="title"></td>
 					<td><input type="text" name="addr" size=50></td>
-					<td><input type="text" name="xxx" size=20></td>
-					<td><input type="text" name="yyy" size=20></td>
+					<td><input type="text" id="xxx" name="xxx" size=20 value="" readonly></td>
+					<td><input type="text" id="yyy" name="yyy" size=20 value="" readonly></td>
+				</tr>
+			</table>
+			<br>
+			<table border="1">
+				<tr>
+					<th>지도</th>
+				</tr>
+				<tr>
+					<td><div id="map" class="map"></div></td>
 				</tr>
 			</table>
 			<br>
