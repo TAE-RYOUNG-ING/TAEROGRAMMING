@@ -32,11 +32,12 @@ $(document).ready(function() {
         y.value = yyy;
         
         // 마커 띄울 위치
-        // 좌표체계가 이미 변환된 값
+        // -> 좌표체계가 이미 변환된 값임
     	centerPos = [xxx, yyy];
         addMarker(centerPos);
         
         // 마커레이어가 2개 이상일 경우 앞에 마커레이어 삭제
+        // -> 그러나 레이어 앞에 무언가가 더 있을 경우 난해한 방법..
 //        if(map.getLayers().getArray().length > 2){ // 레이어 길이
 //        	let del = map.getLayers().getArray()[1];
 //        	map.removeLayer(del);

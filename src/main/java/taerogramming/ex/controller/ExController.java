@@ -142,8 +142,8 @@ public class ExController {
 	// 5. 특정 맛집 삭제
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 //	public String deleteInfo(@RequestParam("num") Integer num) throws Exception {
-	public String deleteInfo(Integer num) throws Exception { // 컨트롤러의 파라미터 자동 수집
-		logger.info("@@@@@@@@@@ deleteInfo() 호출");
+	public String deleteInfo(Integer num) throws Exception { // @RequestParam 생략 가능 
+		logger.info("@@@@@@@@@@ deleteInfo() 호출");		 // 컨트롤러의 파라미터 자동 수집 기능
 		
 		// 해당 정보 삭제하기
 		// 사실상 DB에는 저장되어 있고 출력할 때 숨기는 것

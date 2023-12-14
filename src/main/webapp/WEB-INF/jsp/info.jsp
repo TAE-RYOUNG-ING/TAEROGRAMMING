@@ -18,7 +18,7 @@
 <script type="text/javascript" src="/js/global.js"></script>
 <script type="text/javascript" src="/js/info.js"></script>
 <script type="text/javascript">
-// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡJava SCriptㅡㅡㅡㅡㅡㅡ
+// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡJava Scriptㅡㅡㅡㅡㅡㅡ
 centerPos = [Number("${vo.xxx}"), Number("${vo.yyy}")];
 </script>
 
