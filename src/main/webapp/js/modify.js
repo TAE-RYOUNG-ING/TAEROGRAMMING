@@ -45,7 +45,7 @@ $(document).ready(function(){
 
 
 //ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡJSㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-//ㅡㅡㅡㅡㅡㅡㅡㅡ 1. 특정 맛집 지도 생성 ㅡㅡㅡㅡㅡㅡㅡㅡ
+//ㅡㅡㅡㅡㅡㅡㅡㅡ 1. 특정 맛집 지도 생성 ㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 function init() {
 			    map = new ol.Map({
 			 		   layers: [new ol.layer.Tile({source: new ol.source.OSM()})],
