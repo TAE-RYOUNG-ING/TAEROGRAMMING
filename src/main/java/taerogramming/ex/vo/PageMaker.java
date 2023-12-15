@@ -15,7 +15,7 @@ public class PageMaker {
 	private int pageBlock = 5;	// 페이지 블럭의 수
 	
 //	private int page;			// 페이지 번호
-//	private int pageSize;		// 페이지 크기
+//	private int pageSize;		// 페이지 크기0
 	private PageVO pageVO;		// 이미 생성해놓은 객체 활용
 	
 	

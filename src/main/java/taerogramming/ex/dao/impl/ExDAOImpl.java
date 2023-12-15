@@ -28,10 +28,16 @@ public class ExDAOImpl extends EgovComAbstractDAO{
 		return selectList(NAMESPACE + ".list");
 	}
 	
-	// 1-2. 맛집 리스트 (페이징 처리)
-	public List<ExVO> getListPage(PageVO vo) throws Exception {
-		logger.info("########## getListPage() 호출");
-		return selectList(NAMESPACE + ".listPage", vo);
+	// 1-2. 맛집 리스트 (페이징 처리_read)
+	public List<ExVO> readListPage(Integer page) throws Exception {
+		logger.info("########## readListPage(page) 호출");
+		return selectList(NAMESPACE + ".listPage", page);
+	}
+	
+	// 1-3. 맛집 리스트 (페이징 처리_get)
+	public List<ExVO> getListPage(PageVO pvo) throws Exception {
+		logger.info("########## getListPage(pvo) 호출");
+		return selectList(NAMESPACE + ".listPage", pvo);
 	}
 
 	// 2. 맛집 등록

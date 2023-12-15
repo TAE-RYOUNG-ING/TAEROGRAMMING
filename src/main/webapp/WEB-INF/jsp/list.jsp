@@ -41,7 +41,7 @@
 				<th>　y 좌표　</th>
 				
 			</tr>
-			
+<%-- 			<c:set var="no" value="${pm.totalCount - ((pm.pageVO.page-1) * 10) }"/> --%>
 			<c:forEach var="list" items="${exList }">
 				<tr>
 					<td>${list.num }</td>
@@ -60,11 +60,11 @@
 		<a href="/list?page=${pm.startPage-1 }">«</a>
 	</c:if>
 	
-	<c:forEach begin="${pm.startPage }" end="${pm.endPage }" step="1" var="idx">
+	<c:forEach var="idx" begin="${pm.startPage }" end="${pm.endPage }" step="1">
 		<a href="/list?page=${idx }">${idx }</a>
 	</c:forEach>
 	
-	<c:if test="${pm.next }">
+	<c:if test="${pm.next && pm.endPage > 0}">
 		<a href="/list?page=${pm.endPage+1 }">»</a>
 	</c:if>
 

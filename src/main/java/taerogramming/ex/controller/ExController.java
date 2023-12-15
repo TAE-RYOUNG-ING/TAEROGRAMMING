@@ -28,8 +28,8 @@ public class ExController {
 	// 서비스 주입
 	@Autowired
 	private ExService eService;
-	@Autowired
-	private PageVO pvo;
+//	@Autowired
+//	private PageVO pvo;
 	
 	
 	// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ메서드 정의ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
@@ -54,7 +54,8 @@ public class ExController {
 //		List<ExVO> exList =  eService.getList();
 		
 		// DB에 저장된 리스트 가져오기 (페이징 처리 O)
-		// 기본 생성자에 page=1, pagesize=10 적용되어 있음
+		// 기본 생성자 page=1, pagesize=5 적용
+		
 		List<ExVO> exList =  eService.getListPage(pvo);
 		logger.info("@@@@@@@@@@ exList : {}", exList);
 		
@@ -62,9 +63,9 @@ public class ExController {
 		PageMaker pm = new PageMaker();
 		pm.setPageVO(pvo);
 		pm.setTotalCount(eService.getTotalCount());	// calcMyPage() 함수까지 같이 호출
-													// 실제 내 DB에 있는 총 글의 개수를 파라미터에 넣음
+													// 실제 내 DB에 있는 총 글의 개수를 계산하여 파라미터에 넣음
 		
-		// 연결된 뷰페이지에 정보 전달
+		// 연결된 뷰페이지에 정보 전달 & 페이지 이동
 		model.addAttribute("exList", exList);
 		model.addAttribute("pm", pm);
 		logger.info("@@@@@@@@@@ list.jsp 페이지이동");

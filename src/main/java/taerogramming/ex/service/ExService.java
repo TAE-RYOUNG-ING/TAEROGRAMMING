@@ -12,8 +12,11 @@ public interface ExService {
 	// 1-1. 맛집 리스트
 	public List<ExVO> getList() throws Exception;
 	
-	// 1-2. 맛집 리스트 (페이징 처리 Ver)
-	public List<ExVO> getListPage(PageVO vo) throws Exception;
+	// 1-2. 맛집 리스트 (페이징 처리_read)
+	public List<ExVO> readListPage(Integer page) throws Exception;
+	
+	// 1-3. 맛집 리스트 (페이징 처리_get)
+	public List<ExVO> getListPage(PageVO pvo) throws Exception;
 	
 	// 2. 맛집 등록
 	public void regist(ExVO vo) throws Exception;

@@ -33,11 +33,18 @@ public class ExServiceImpl implements ExService {
 		return edao.readList();
 	}
 	
-	// 1-2. 맛집 리스트 (페이징 처리)
+	// 1-2. 맛집 리스트 (페이징 처리_read)
 	@Override
-	public List<ExVO> getListPage(PageVO vo) throws Exception {
-		logger.info("&&&&&&&&&& getListPage(vo) 호출");
-		return edao.getListPage(vo);
+	public List<ExVO> readListPage(Integer page) throws Exception {
+		logger.info("&&&&&&&&&& readListPage(page) 호출");
+		return edao.readListPage(page);
+	}
+	
+	// 1-3. 맛집 리스트 (페이징 처리_get)
+	@Override
+	public List<ExVO> getListPage(PageVO pvo) throws Exception {
+		logger.info("&&&&&&&&&& getListPage(pvo) 호출");
+		return edao.getListPage(pvo);
 	}
 
 	// 2. 맛집 등록

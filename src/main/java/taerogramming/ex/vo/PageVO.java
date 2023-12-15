@@ -1,5 +1,4 @@
 package taerogramming.ex.vo;
-
 import org.springframework.stereotype.Component;
 
 @Component
