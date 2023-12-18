@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>태로그래밍_센텀 맛집 리스트</title>
 
 <!-- css -->
 <link rel="stylesheet" href="/css/info.css" type="text/css">

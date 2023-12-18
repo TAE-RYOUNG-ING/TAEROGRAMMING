@@ -63,7 +63,7 @@ function init() {
 					 });
 }
 
-//ㅡㅡㅡㅡㅡㅡㅡㅡ 2. 마커 레이어 ㅡㅡㅡㅡㅡㅡㅡㅡ
+//ㅡㅡㅡㅡㅡㅡㅡㅡ 2. 마커 레이어 ㅡㅡㅡㅡㅡㅡㅡㅡ 
 
 //마커 레이어 추가 메서드 정의
 function addMarker(centerPos) {
@@ -71,14 +71,14 @@ function addMarker(centerPos) {
 	let markerLayer;
 	
 	// 1) 마커 레이어에 들어갈 소스 생성
-	let markerSource = new ol.source.Vector();
+	let markerSource = new ol.source.Vector();11111120
 	
 	 // 2) Feture 좌표 등록
 	 let point_feature = new ol.Feature({
 	     geometry: new ol.geom.Point(centerPos).transform('EPSG:4326', 'EPSG:3857') 
 	 });
  
-	// 3) 소스에 feture 추가 
+	// 3) 소스에 feture 추가
  //      addFeature를 이용해서, 여러개의 point를 source에 담음
 	 markerSource.addFeature(point_feature);
 

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>태로그래밍_센텀 맛집 리스트</title>
 <style>
 
 .center {
@@ -41,15 +41,17 @@
 				<th>　y 좌표　</th>
 				
 			</tr>
-<%-- 			<c:set var="no" value="${pm.totalCount - ((pm.pageVO.page-1) * 10) }"/> --%>
+			<c:set var="no" value="${pm.totalCount - ((pm.pageVO.page-1) * 5)}" />
 			<c:forEach var="list" items="${exList }">
 				<tr>
-					<td>${list.num }</td>
+<%-- 					<td>${list.num }</td> --%>
+					<td>${no }</td>
 					<td><a href="/info?num=${list.num}&page=${pm.pageVO.page }">${list.title }</a></td>
 					<td>${list.addr }</td>
 					<td>${list.xxx }</td>
 					<td>${list.yyy }</td>
 				</tr>
+			<c:set var="no" value="${no-1 }" />
 			</c:forEach>
 		</table>
 	</div>
