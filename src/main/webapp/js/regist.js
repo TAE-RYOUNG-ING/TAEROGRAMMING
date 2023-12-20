@@ -20,10 +20,10 @@ $(document).ready(function() {
     	
     	// 2) 클릭한 지점 경위도 좌표값 가져오기
     	let lonlat = ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326');
-    	console.log(lonlat);
     	
         let xxx = Number(lonlat[0]);
         let yyy = Number(lonlat[1]);
+        
         console.log("x = " + xxx + " y = " + yyy);
         
         let x = document.getElementById('xxx');
@@ -57,9 +57,9 @@ function init() {
 			 		   layers: [new ol.layer.Tile({source: new ol.source.OSM()})],
 					   target: 'map',
 					   view: new ol.View({
-						  center: ol.proj.transform([129.130181, 35.173580], 'EPSG:4326', 'EPSG:3857'),
-						  zoom: 17
-						})
+										  center: ol.proj.transform([129.130181, 35.173580], 'EPSG:4326', 'EPSG:3857'),
+										  zoom: 17
+							 })
 					 });
 }
 
@@ -71,7 +71,7 @@ function addMarker(centerPos) {
 	let markerLayer;
 	
 	// 1) 마커 레이어에 들어갈 소스 생성
-	let markerSource = new ol.source.Vector();11111120
+	let markerSource = new ol.source.Vector();
 	
 	 // 2) Feture 좌표 등록
 	 let point_feature = new ol.Feature({

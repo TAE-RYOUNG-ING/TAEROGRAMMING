@@ -18,7 +18,7 @@ import taerogramming.ex.vo.PageVO;
 
 
 @Controller
-//@RequestMapping(value = "/view/*")
+//@RequestMapping(value = "/view/*") // 상위 폴더가 있을 경우
 public class ExController {
 
 	

@@ -32,15 +32,14 @@ $(document).ready(function() {
 function init() {
     // map 생성
     map = new ol.Map({
-			 		   layers: [new ol.layer.Tile({source: new ol.source.OSM()})],	// OSM 레이어 추가
-					   target: 'map',										        // 지도 생성할 div_id id
+			 		   layers: [new ol.layer.Tile({source: new ol.source.OSM()})],		  // OSM 레이어 추가
+					   target: 'map',										        	  // 지도 생성할 div_id id
 					   view: new ol.View({
-						  center: ol.proj.transform(centerPos, 'EPSG:4326', 'EPSG:3857'), 			// 초기 지도 위치 좌표
-						  zoom: 17
-						})				// 줌 레벨
+						  center: ol.proj.transform(centerPos, 'EPSG:4326', 'EPSG:3857'), // 초기 지도 위치 좌표
+						  zoom: 17														  // 줌 레벨
+						})				
 					 });
 }
-
 
 // ㅡㅡㅡㅡㅡㅡㅡㅡ 2. 마커 레이어 ㅡㅡㅡㅡㅡㅡㅡㅡ
     
@@ -75,8 +74,8 @@ function addMarker() {
     // 5) 마커 레이어 생성
 	markerLayer = new ol.layer.Vector({
 		id: "marker",
-	    source: markerSource, //마커 feacture들
-	    style: markerStyle //마커 스타일
+	    source: markerSource, // 마커 feacture들
+	    style: markerStyle    // 마커 스타일
 	});
 	
 	// 6) 지도에 마커가 그려진 레이어 추가
