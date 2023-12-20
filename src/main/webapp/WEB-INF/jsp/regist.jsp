@@ -26,7 +26,7 @@
 	
 		<h1 class="center">맛집 등록</h1>
 		
-		<form action="/regist" method="post">
+		<form id="fr">
 			<table border="1">
 				<tr>
 					<th>가게명</th>
@@ -59,10 +59,11 @@
 					<td><input type="text" name="review" size="100"></td>
 				</tr>
 			</table>
-			<br>
-				<input type="submit" value="등록하기">
-				<input type="button" value="목록으로" onclick="location.href='/list';">
 		</form>
+		<!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ form ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+		<br>
+		<input type="button" id="regist" value="등록하기">
+		<input type="button" value="목록으로" onclick="location.href='/list';">
 	</div>
 </div>
 

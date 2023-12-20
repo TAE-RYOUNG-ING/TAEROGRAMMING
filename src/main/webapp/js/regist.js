@@ -8,7 +8,6 @@ $(document).ready(function() {
 	
 	// 3. 지도 클릭 시 소스에 피쳐 추가
     map.on('click', function(evt) {
-    	
     	// 1) marker 피쳐가 있는지 먼저 탐색, 있다면 삭제
     	// -> 하나의 마커만 띄우기 위함
     	// * 레이어 삭제
@@ -33,7 +32,14 @@ $(document).ready(function() {
         // -> 좌표체계가 이미 변환된 값이니 바로 대입
     	centerPos = [Number(lonlat[0]), Number(lonlat[1])];
         addFT(markerSource, centerPos);
-        
+    });
+    
+    // 4. '등록하기' 클릭 시
+    $('#regist').click(function(){
+    	$('#fr').attr('method', 'post');
+    	$('#fr').attr('action', '/regist');
+    	$('#fr').submit();
+    	alert("등록이 완료되었습니다.");
     });
     
 });

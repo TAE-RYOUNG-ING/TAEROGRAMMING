@@ -1,24 +1,15 @@
 $(document).ready(function() {
 
-	// 지도 띄우고 마커 레이어 추가
+	// 1. 지도 레이어 + 마커 레이어
 	init();
 	addMarker();
 	
-	// 지도 클릭 시 해당 좌표 값을 가져옴
-    map.on('click', function(evt) {
-        let coordinate = evt.coordinate;
-        console.log(coordinate);
-    });
-    
-	
- 	// form태그 정보 저장
-	let frObj = $('#fr');
-	// '삭제하기' 클릭
+ 	// 2. '삭제하기' 클릭 시
 	$('#delete').click(function(){
+		$('#fr').attr('method', 'post');
+		$('#fr').attr('action', '/delete');
+		$('#fr').submit();
 		alert("삭제가 완료되었습니다.");
-		frObj.attr('method', 'post');
-		frObj.attr('action', '/delete');
-		frObj.submit();
 	});
 	
 });

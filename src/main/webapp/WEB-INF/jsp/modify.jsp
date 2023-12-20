@@ -68,8 +68,8 @@ console.log("centerPos= " + centerPos);
 					<td><input type="text" name="review" value="${vo.review }" size="100"></td>
 				</tr>
 			</table>
-	</form>
-	<!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ form ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+		</form>
+		<!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ form ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 	
 	</div>
 </div>

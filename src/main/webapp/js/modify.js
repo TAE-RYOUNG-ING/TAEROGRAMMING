@@ -29,12 +29,11 @@ $(document).ready(function(){
     });
 	
 	// 3. '수정하기' 클릭 시
-	let frObj = $('#fr'); // form태그 정보 저장
 	$('#update').click(function(){
+		$('#fr').attr('method', 'post');
+		$('#fr').attr('action', '/modify');
+		$('#fr').submit();
 		alert("수정이 완료되었습니다.");
-		frObj.attr("method", "post");
-		frObj.attr("action", "/modify");
-		frObj.submit();
 	});
 });
 //ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡJQueryㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
@@ -68,20 +67,20 @@ function getLS(centerPos) {
 	markerSource.addFeature(originFeature);
 
 	// 3) 마커 스타일 지정	
-//	let markerStyle = new ol.style.Style({
-//										   image: new ol.style.Icon({ // 마커 이미지
-//																      opacity: 1, 			   // 투명도 1 = 100% 
-//																      scale: 0.1, 			   // 크기 1 = 100%
-//																      src: '/img/marker.png'   // 해당 이미지로 변경
-//										   }),
-//										   zindex: 10 // html의 css, z-index 기능
-//	});
+	let markerStyle = new ol.style.Style({
+										   image: new ol.style.Icon({ // 마커 이미지
+																      opacity: 1, 			   // 투명도 1 = 100% 
+																      scale: 0.1, 			   // 크기 1 = 100%
+																      src: '/img/marker.png'   // 해당 이미지로 변경
+										   }),
+										   zindex: 10 // html의 css, z-index 기능
+	});
+	originFeature.setStyle(markerStyle);
 
 	// 4) 마커 레이어 조합
 	let markerLayer = new ol.layer.Vector({
 											id: "markerLayer",
 										    source: markerSource
-//										    style: markerStyle
 					  });
 	
 	// 6) 지도에 마커가 그려진 레이어 추가
