@@ -1,6 +1,5 @@
 package taerogramming.ex.controller;
 import java.util.List;
-import javax.servlet.jsp.tagext.TryCatchFinally;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import taerogramming.ex.service.ExService;
 import taerogramming.ex.vo.ExVO;
@@ -78,7 +78,7 @@ public class ExController {
 	@RequestMapping(value = "/regist", method = RequestMethod.GET)
 	public void registGET() throws Exception{
 		logger.info("@@@@@@@@@@ registGET() 호출");
-		logger.info("@@@@@@@@@@ regist.jsp 페이지 이동");
+        logger.info("@@@@@@@@@@ regist.jsp 페이지 이동");
 	}
 	
 	@RequestMapping(value = "/regist", method = RequestMethod.POST)
@@ -155,12 +155,15 @@ public class ExController {
 	
 	
 	
-	// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 지도 띄우기 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-	@RequestMapping(value = "/exMap", method = RequestMethod.GET)
-	public void getExMap() throws Exception {
-		logger.info("@@@@@@@@@@ getExMap() 호출");
-		logger.info("@@@@@@@@@@ exMap.jsp 페이지 이동");
-	}
+	// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ VWorld API ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+//	@GetMapping("/vworldAPI")
+//	public String AddressTranslation(/* String lat, String lng, HttpServeltRequest request */) throws Exception {
+//		logger.info("@@@@@@@@@@ AddressTranslation() 호출");
+//
+//		
+//
+//        return ret.toString();
+//	}
 
 	
 	

@@ -36,9 +36,9 @@
 				</tr>
 				<tr>
 					<td><input type="text" name="title"></td>
-					<td><input type="text" name="addr" size=50></td>
-					<td><input type="text" id="xxx" name="xxx" size=20 value="" readonly></td>
-					<td><input type="text" id="yyy" name="yyy" size=20 value="" readonly></td>
+					<td><input type="text" id="addr" name="addr" value="" size=50 readonly></td>
+					<td><input type="text" id="xxx" name="xxx" value="" size=20 readonly></td>
+					<td><input type="text" id="yyy" name="yyy" value="" size=20 readonly></td>
 				</tr>
 			</table>
 			<br>

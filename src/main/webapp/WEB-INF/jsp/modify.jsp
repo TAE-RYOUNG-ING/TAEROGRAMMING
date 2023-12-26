@@ -43,7 +43,7 @@ console.log("centerPos= " + centerPos);
 				<tr>
 					<td>${vo.num }</td>
 					<td><input type="text" name="title" value="${vo.title }" size="20"></td>
-					<td><input type="text" name="addr" value="${vo.addr }" size="50"></td>
+					<td><input type="text" id="addr" name="addr" value="${vo.addr }" size="50" readonly></td>
 					<td><input type="text" id="xxx" name="xxx" value="${vo.xxx }" size="20" readonly></td>
 					<td><input type="text" id="yyy" name="yyy" value="${vo.yyy }" size="20" readonly></td>
 				</tr>

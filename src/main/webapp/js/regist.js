@@ -1,3 +1,4 @@
+//let obj;
 $(document).ready(function() {
 		
 	// 1. 지도 생성
@@ -12,7 +13,6 @@ $(document).ready(function() {
     	// -> 하나의 마커만 띄우기 위함
     	// * 레이어 삭제
 //    	map.removeLayer(map.getLayers().getArray().filter(i => i.get('id') == 'marker')[0]);
-    	console.log(markerSource.getFeatures().filter(i => i.get('id') == 'markerFeature')[0]);	// undefined
     	
     	// 방법1 - if문
     	if(markerSource.getFeatures().length != 0) {
@@ -24,14 +24,44 @@ $(document).ready(function() {
     	// 2) 클릭한 지점 경위도 좌표값 가져오기
     	let lonlat = ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326');
         console.log("x = " + Number(lonlat[0]) + " y = " + Number(lonlat[1]));
-        // View 페이지에 좌표 값 전달
+        // 2-1) View 페이지에 좌표 값 전달
         document.getElementById('xxx').value = Number(lonlat[0]);
         document.getElementById('yyy').value = Number(lonlat[1]);
 
         // 3) 마커 피쳐 추가
         // -> 좌표체계가 이미 변환된 값이니 바로 대입
     	centerPos = [Number(lonlat[0]), Number(lonlat[1])];
-        addFT(markerSource, centerPos);
+        addFT(markerSource, centerPos); 
+        
+        // 4) View 페이지에 주소 API 전달
+        let obj;
+        let point = lonlat[0] + "," + lonlat[1];
+        $.ajax({
+        	url: "https://api.vworld.kr/req/address?",
+        	type: "get",
+        	dataType: "jsonp",
+        	data: {
+        		service: "address",
+        		request: "getaddress",
+        		version: "2.0",
+        		crs: "EPSG:4326",
+        		type: "BOTH",
+        		point: point,
+        		format: "json",
+        		errorformat: "json",
+        		key: "2FE1AEA4-0AE1-36F5-9950-FDAB338D7091"
+		  	},
+        	success: function(result){
+        		obj = result;
+        		console.log(obj);
+    			document.getElementById('addr').value = obj.response.result[0].text;
+        	},
+        	error: function(xhr, status, error){
+        		alert("ajax 에러");
+        		alert(xhr, status, error);
+        	}
+        });
+        
     });
     
     // 4. '등록하기' 클릭 시

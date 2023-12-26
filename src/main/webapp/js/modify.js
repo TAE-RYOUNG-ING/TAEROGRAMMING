@@ -26,6 +26,35 @@ $(document).ready(function(){
         // 3) 새로운 피쳐 생성
     	centerPos = [Number(lonlat[0]), Number(lonlat[1])];
     	addFT(markerSource, centerPos);
+    	
+    	// 4) View 페이지에 주소 API 전달
+    	let obj;
+    	let point = lonlat[0] + "," + lonlat[1];
+    	$.ajax({
+    		url: "https://api.vworld.kr/req/address?",
+    		type: "get",
+    		dataType: "jsonp",
+    		data: {
+        		service: "address",
+        		request: "getaddress",
+        		version: "2.0",
+        		crs: "EPSG:4326",
+        		type: "BOTH",
+        		point: point,
+        		format: "json",
+        		errorformat: "json",
+        		key: "2FE1AEA4-0AE1-36F5-9950-FDAB338D7091"
+    		},
+    		success: function(result){
+    			obj = result;
+        		console.log(obj);
+    			document.getElementById('addr').value = obj.response.result[0].text;
+    		},
+    		error: function(xhr, status, error){
+    			alert("ajax 에러");
+        		alert(xhr, status, error);
+    		}
+    	});
     });
 	
 	// 3. '수정하기' 클릭 시
@@ -35,6 +64,7 @@ $(document).ready(function(){
 		$('#fr').submit();
 		alert("수정이 완료되었습니다.");
 	});
+	
 });
 //ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡJQueryㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
@@ -87,7 +117,7 @@ function getLS(centerPos) {
 	map.addLayer(markerLayer);
 	
 	return markerSource;
-}
+}                                                                                                                 
 
 
 
