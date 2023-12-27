@@ -23,14 +23,14 @@ $(document).ready(function() {
     	
     	// 2) 클릭한 지점 경위도 좌표값 가져오기
     	let lonlat = ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326');
-        console.log("x = " + Number(lonlat[0]) + " y = " + Number(lonlat[1]));
+        console.log("x = " + lonlat[0] + " y = " + lonlat[1]);
         // 2-1) View 페이지에 좌표 값 전달
-        document.getElementById('xxx').value = Number(lonlat[0]);
-        document.getElementById('yyy').value = Number(lonlat[1]);
+        document.getElementById('xxx').value = lonlat[0];
+        document.getElementById('yyy').value = lonlat[1];
 
         // 3) 마커 피쳐 추가
         // -> 좌표체계가 이미 변환된 값이니 바로 대입
-    	centerPos = [Number(lonlat[0]), Number(lonlat[1])];
+    	centerPos = [lonlat[0], lonlat[1]];
         addFT(markerSource, centerPos); 
         
         // 4) View 페이지에 주소 API 전달

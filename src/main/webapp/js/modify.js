@@ -18,18 +18,26 @@ $(document).ready(function(){
     	
     	// 2) 클릭한 지점 경위도 좌표값 가져오기
     	let lonlat = ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326');
-    	console.log("x = " + Number(lonlat[0]) + " y = " + Number(lonlat[1]));
+    	console.log("x = " + lonlat[0] + " y = " + lonlat[1]);
         // View 페이지에 좌표값 전달
-        document.getElementById('xxx').value = Number(lonlat[0]);
-        document.getElementById('yyy').value = Number(lonlat[1]);
+        document.getElementById('xxx').value = lonlat[0];
+        document.getElementById('yyy').value = lonlat[1];
 
         // 3) 새로운 피쳐 생성
-    	centerPos = [Number(lonlat[0]), Number(lonlat[1])];
+    	centerPos = [lonlat[0], lonlat[1]];
     	addFT(markerSource, centerPos);
+    	
+    	// TEST
+    	let a = 123;
+    	let b = 123 + "";
+    	let c = a.toString();
+    	alert("a" + typeof(a));
+    	alert("b" + typeof(b));
+    	alert("c" + typeof(c));
     	
     	// 4) View 페이지에 주소 API 전달
     	let obj;
-    	let point = lonlat[0] + "," + lonlat[1];
+//    	let point = lonlat[0] + "," + lonlat[1];
     	$.ajax({
     		url: "https://api.vworld.kr/req/address?",
     		type: "get",
@@ -38,9 +46,9 @@ $(document).ready(function(){
         		service: "address",
         		request: "getaddress",
         		version: "2.0",
-        		crs: "EPSG:4326",
+        		crs: "EPSG:4326", 
         		type: "BOTH",
-        		point: point,
+        		point: lonlat[0] + "," + lonlat[1], // String
         		format: "json",
         		errorformat: "json",
         		key: "2FE1AEA4-0AE1-36F5-9950-FDAB338D7091"
