@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import egovframework.com.cmm.service.impl.EgovComAbstractDAO;
 import taerogramming.ex.dao.impl.ExDAOImpl;
 import taerogramming.ex.service.ExService;
 import taerogramming.ex.vo.ExVO;

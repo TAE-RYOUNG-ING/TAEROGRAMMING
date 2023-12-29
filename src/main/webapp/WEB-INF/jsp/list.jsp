@@ -6,19 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>태로그래밍_센텀 맛집 리스트</title>
-<style>
-
-.center {
-	text-align: center;
-}
-.btn {
-	text-align: right;
-}
-.inline{
-	display: inline-block;
-}
-
-</style>
+<!-- css -->
+<link rel="stylesheet" href="/css/list.css" type="text/css">
+<!-- openlayers -->
+<link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
+<script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- js -->
+<script type="text/javascript" src="/js/global.js"></script>
+<script type="text/javascript" src="/js/list.js"></script>
 </head>
 <body>
 
@@ -57,6 +54,7 @@
 	</div>
 	<br><br>
 	
+	
 	<!-- 페이징 처리 -->
 	<c:if test="${pm.prev }">
 		<a href="/list?page=${pm.startPage-1 }">«</a>
@@ -69,8 +67,12 @@
 	<c:if test="${pm.next && pm.endPage > 0}">
 		<a href="/list?page=${pm.endPage+1 }">»</a>
 	</c:if>
-
 </div>
+	<br>
+	
+	
+	<!-- 큰 지도 -->
+	<div id="map2" class="map"></div>
 
 </body>
 </html>

@@ -28,16 +28,15 @@ $(document).ready(function(){
     	addFT(markerSource, centerPos);
     	
     	// TEST
-    	let a = 123;
-    	let b = 123 + "";
-    	let c = a.toString();
-    	alert("a" + typeof(a));
-    	alert("b" + typeof(b));
-    	alert("c" + typeof(c));
+//    	let a = 123;
+//    	let b = 123 + "";
+//    	let c = a.toString();
+//    	alert("a" + typeof(a));
+//    	alert("b" + typeof(b));
+//    	alert("c" + typeof(c));
     	
     	// 4) View 페이지에 주소 API 전달
-    	let obj;
-//    	let point = lonlat[0] + "," + lonlat[1];
+//    	let obj;
     	$.ajax({
     		url: "https://api.vworld.kr/req/address?",
     		type: "get",
@@ -48,15 +47,16 @@ $(document).ready(function(){
         		version: "2.0",
         		crs: "EPSG:4326", 
         		type: "BOTH",
-        		point: lonlat[0] + "," + lonlat[1], // String
+        		point: lonlat[0] + "," + lonlat[1],
+//        		point: `${lonlat[0]},${lonlat[1]}`,
         		format: "json",
         		errorformat: "json",
         		key: "2FE1AEA4-0AE1-36F5-9950-FDAB338D7091"
     		},
     		success: function(result){
-    			obj = result;
-        		console.log(obj);
-    			document.getElementById('addr').value = obj.response.result[0].text;
+//    			obj = result;
+//        		console.log(obj);
+    			document.getElementById('addr').value = result.response.result[0].text;
     		},
     		error: function(xhr, status, error){
     			alert("ajax 에러");
@@ -152,3 +152,25 @@ function addFT(markerSource, centerPos) {
 	// 3) 소스에 추가
 	markerSource.addFeature(newFeature);
 }
+
+
+// ajax async 예제
+function test() {
+	console.log(testApi()); 
+}
+
+function testApi() {
+	
+	let num;
+	$.ajax({
+		url : "test",
+		type : "get",
+		async: false, // 동기로 하겠다
+		success : (result) => {
+			num = result;
+		}
+	});
+	
+	return num; // undefined
+}
+

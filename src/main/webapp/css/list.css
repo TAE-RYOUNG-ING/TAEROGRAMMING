@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+.map {
+    width: 1250px;
+    height:300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.center {
+	text-align: center;
+}
+.inline{
+	display: inline-block;
+}
+.btn {
+	text-align: right;
+}

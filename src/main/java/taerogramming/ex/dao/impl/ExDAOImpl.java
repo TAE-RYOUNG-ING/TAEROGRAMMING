@@ -39,7 +39,7 @@ public class ExDAOImpl extends EgovComAbstractDAO{
 		logger.info("########## getListPage(pvo) 호출");
 		return selectList(NAMESPACE + ".listPage", pvo);
 	}
-
+	
 	// 2. 맛집 등록
 	public void insert(ExVO vo) throws Exception {
 		logger.info("########## insert() 호출");
