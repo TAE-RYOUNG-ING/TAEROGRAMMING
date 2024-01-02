@@ -1,9 +1,9 @@
 $(document).ready(function() {
 
-	// map 레이어
+	// 1. map 레이어
 	init();
 
-	// wms 레이어 가져오기
+	// 2. wms 레이어 가져오기
 	makeWMS();
 	
 });
@@ -14,40 +14,62 @@ $(document).ready(function() {
 
 function init() {
 
- map = new ol.Map({
-			 		   layers: [new ol.layer.Tile({
-			 			   							id: 'mapLayer',
-			 			   							source: new ol.source.OSM()})],		  // OSM 레이어 추가
-					   target: 'map2',										        	  // 지도 생성할 div_id id
-					   view: new ol.View({
-						  center: ol.proj.transform([129.130181, 35.173580], 'EPSG:4326', 'EPSG:3857'), // 초기 지도 위치 좌표 (경위도 -> OSM)
-						  zoom: 11														  // 줌 레벨
-						})				
-					 });
+	// 방법1 )
+//	 map = new ol.Map({
+//				 		   layers: [new ol.layer.Tile({
+//				 			   							id: 'mapLayer',
+//				 			   							source: new ol.source.OSM()}	// OSM 레이어 추가
+//							)],		  
+//						   	target: 'map2',												// 지도 생성할 div_id id
+//						   	view: new ol.View({
+//							  					center: ol.proj.transform([129.130181, 35.173580], 'EPSG:4326', 'EPSG:3857'),
+//							  					zoom: 9
+//							})
+//			});
+ 
+	
+	// 방법2 )
+	// 배경지도 Layer
+	let layers = [
+			     new ol.layer.Tile({
+			    	 				id: 'mapLayer',
+			         				source: new ol.source.OSM()
+			     })
+	];
+	  
+	// 배경지도의 View 객체
+	let view = new ol.View({
+	     center: ol.proj.transform([129.130181, 35.173580], 'EPSG:4326', 'EPSG:3857'),
+	     zoom: 9
+	});
+	  
+	// 배경지도가 있는 Map
+	map = new ol.Map({
+						target: 'map2',
+						layers: layers,
+						view: view
+	});
+
 }
 
+// WMS 사용
+// -> 객체를 GeoServer에서 랜더링한 이미지를 받아 표시
+// -> GeoServer로부터 직접 Tile Map을 받아 표현하는 것
 // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡImageWMS 생성하기ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 function makeWMS(){
 	
-	const wmsSource = new ol.source.ImageWMS({
-		url: 'http://192.168.0.98:8080/geoserver/lingling/wms',
-		params: {
-			layers: 'lingling:TL_SCCO_SIG'
-//			exceptions: 'application/json',
-		},
-		serverType: 'geoserver'
+	let wmsSource = new ol.source.ImageWMS({
+											   url: 'http://192.168.0.98:8080/geoserver/lingling/wms',
+											   params: {
+														 layers: ['lingling:TL_SCCO_SIG', 'TL_SCCO_EMD', 'TL_SCCO_LI']
+											   },
+											   serverType: 'geoserver'
 	});
 
 	let wmsLayer = new ol.layer.Image({
-		source: wmsSource
+										source: wmsSource
 	});
 
 	map.addLayer(wmsLayer);
+	
 }
-
-
-
-
-
-
-
